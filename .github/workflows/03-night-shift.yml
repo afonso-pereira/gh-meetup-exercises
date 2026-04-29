@@ -1,0 +1,16 @@
+name: 03-the-night-shift
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  etl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run ETL script
+        run: python etl/run.py
